@@ -1,17 +1,20 @@
+# Intro
+This service consumes GitHub API to infer whether a repo is popular or not
 # How to install
-To install dependencies for development use: `$ pip install -r requirements-dev.txt`
-
+- To install dependencies for development use: `$ pip install -r requirements-dev.txt`
+  
 # How to run
 ## For development
-To run it in local `$ uvicorn app:app --reload`
-
-# How to use
-Swagger page: `http://127.0.0.1:8000/docs`
-Request example: `$ curl GET 'http://127.0.0.1:8000/api/v1/score/django/django'`
+- To run it in local `$ uvicorn app:app --reload`
 
 # Run in Docker
-Create image: `$ docker build -t <name> .`
-Run container: `$docker run --rm -p 8000:8000 juancamiloceron/github`
+- Create image: `$ docker build -t <image_ame> .`
+- Run container: `$docker run --rm -p 8000:8000 <image_name>`
+- Passing Personal Token: `$ docker run --rm -p 8000:8000 -e GITHUB_TOKEN=<token> <image_name>`
+
+# How to use
+- Swagger page: `http://127.0.0.1:8000/docs`
+- Request example: `$ curl GET 'http://127.0.0.1:8000/api/v1/score/django/django'`
 
 
 # How to test
@@ -30,3 +33,6 @@ Be aware this is going to actually hit github. This may fail due the restriction
 # TODO
 - [ ] Use classes for tests and use fixtures
 - [ ] Add logs
+- [ ] Add metrics
+- [ ] Add dotenv
+- [ ] Add the possibility of using other repos hub different than github

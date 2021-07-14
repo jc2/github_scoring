@@ -8,7 +8,7 @@ url_base = "https://api.github.com"
 repo_api = url_base + "/repos/{}/{}"
 
 headers = {
-    "Authorization": os.getenv("GITHUB_TOKEN")
+    "Authorization": f"Bearer {os.getenv('GITHUB_TOKEN')}"
 }
 
 
@@ -31,7 +31,8 @@ def fetch_repo_info(username, repo):
 
     url = repo_api.format(username, repo)
     try:
-        response = requests.get(url, timeout=0.5)
+        print(headers)
+        response = requests.get(url, headers=headers, timeout=0.5)
         response.raise_for_status()
     except HTTPError as e:
         raise GitHubClientError(GitHubClientError.NOT_ACCESSIIBLE_REPO,
