@@ -23,6 +23,10 @@ class GitHubClientError(Exception):
         self.message = message
 
 
+def test_connection():
+    requests.get(url_base, timeout=0.5)
+
+
 def fetch_repo_info(username, repo):
 
     url = repo_api.format(username, repo)
