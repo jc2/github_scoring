@@ -7,6 +7,12 @@ To run it in local `$ uvicorn app:app --reload`
 
 # How to use
 Swagger page: `http://127.0.0.1:8000/docs`
+Request example: `$ curl GET 'http://127.0.0.1:8000/api/v1/score/django/django'`
+
+# Run in Docker
+Create image: `$ docker build -t <name> .`
+Run container: `$docker run --rm -p 8000:8000 juancamiloceron/github`
+
 
 # How to test
 ## Static code
